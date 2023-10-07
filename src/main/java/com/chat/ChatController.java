@@ -34,11 +34,6 @@ public class ChatController {
         String response = "Successfully sent!";
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
-    @GetMapping("/get")
-    public ResponseEntity<String> getBlank(){
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
 
 }
 
