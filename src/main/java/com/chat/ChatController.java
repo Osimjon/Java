@@ -31,9 +31,12 @@ public class ChatController {
     public ResponseEntity<String> postMessage(@RequestBody Message message){
         message.setMessageTime(Timestamp.valueOf(LocalDateTime.now()));
         messageRepository.save(message);
-
         String response = "Successfully sent!";
         return new ResponseEntity<>(response,HttpStatus.CREATED);
+    }
+    @GetMapping("/get")
+    public ResponseEntity<String> getBlank(){
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
