@@ -21,13 +21,19 @@ public class ChatController {
         this.messageRepository = messageRepository;
     }
 
+
     @GetMapping
+    public ResponseEntity<String> getChat(){
+        return new ResponseEntity<>("Works!",HttpStatus.OK);
+    }
+
+    @GetMapping("/messages")
     public List<Message> getAllMessages(){
         List<Message> allMessages = messageRepository.findAll();
         return allMessages;
     }
 
-    @PostMapping
+    @PostMapping("/messages")
     public ResponseEntity<String> postMessage(@RequestBody Message message){
         message.setMessageTime(Timestamp.valueOf(LocalDateTime.now()));
         messageRepository.save(message);
